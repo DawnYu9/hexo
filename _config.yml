@@ -1,0 +1,154 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site #整站的基本信息
+title: bubble sky #网站标题，站点左上角
+subtitle: Coding world, changing world ^_^ #副标题，站点左上角
+description: Coding world, changing world ^_^ #给搜索引擎看的，对站点的描述，可以自定义，在生成html中的head->meta中可看到
+author: bubble  #网站作者，在站点左下角可以看到
+email: codingbubble@foxmail.com #你的联系邮箱
+language: zh-CN
+timezone:
+
+# URL #域名和文件结构。这项暂不配置，绑定域名后，欲创建sitemap.xml需要配置该项
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://codingbubble.github.io/ #你的域名
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+index_generator:
+  per_page: 10 ##首頁默认10篇文章标题 如果值为0不分页
+
+archive_generator:
+  per_page: 10 ##归档页面默认10篇文章标题
+  yearly: true  ##生成年视图
+  monthly: true ##生成月视图
+
+tag_generator:
+  per_page: 10 ##标签分类页面默认10篇文章
+
+category_generator: 
+   per_page: 10 ###分类页面默认10篇文章
+
+# Writing 文章布局、写作格式的定义，不修改
+new_post_name: :title.md # File name of new posts
+default_layout: post #默认layout方式
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+max_open_file: 100
+multi_thread: true
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight: #代码高亮
+  enable: true #是否启用
+  line_number: true #是否显示行号
+  backtick_code_block: true
+  tab_replace:
+
+# Server 不修改
+## Hexo uses Connect as a server
+## You can customize the logger format as defined in
+## http://www.senchalabs.org/connect/logger.html
+port: 4000
+logger: false
+logger_format:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Archives 默认值为2，这里都修改为1，相应页面就只会列出标题，而非全文
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD HH:mm, Wo周 dddd
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10 #每页10篇文章
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: light
+
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+
+widgets:
+- category
+- tagcloud
+- blogroll #友情链接
+
+#sitemap
+sitemap:
+  path: sitemap.xml
+
+#Feed Atom
+feed:
+  type: atom #feed类型 atom或者rss2
+  path: atom.xml #feed路径
+  limit: 20 #feed文章最小数量
+
+# Markdown
+## https://github.com/chjj/marked
+markdown:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+
+# Stylus
+stylus:
+  compress: false
+
+#多说设置
+duoshuo_shortname: hexo2github
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:codingbubble/codingbubble.github.io.git
+  branch: master
+
+#备份
+##https://github.com/coneycode/hexo-git-backup
+backup:
+    type: git
+    theme: light
+    repository:
+       github: git@github.com:codingbubble/codingbubble.github.io.git,master
